@@ -1,6 +1,6 @@
 # pass-word
 一个简单的密码校验工具
-[git 代码库]()
+[git 代码库](https://github.com/zhouLion/pass-word)
 [git npm 库]()
 
 ## 安装
@@ -39,7 +39,7 @@ schema
   // 开启上连续或相同的字母和数字校验
   .continuous()
   // 开启中文拼音校验
-  .pinyin('周小全')
+  .pinyin('史努比')
   // 开启键盘连续性校验
   .keyboard()
   // 单独设置排除词
@@ -61,9 +61,9 @@ console.log(schema.validate('457924691', callback))
 console.log(schema.validate('jiwr&%(@#', callback))
 console.log(schema.validate('u4js8231x', callback))
 console.log(schema.validate('peace1490', callback))
-console.log(schema.validate('admin556', callback))
-console.log(schema.validate('root@980', callback))
-console.log(schema.validate('zhouxiaoquan@1994', callback))
+console.log(schema.validate('love556', callback))
+console.log(schema.validate('rose@980', callback))
+console.log(schema.validate('shinupi@1994', callback))
 console.log(schema.validate('snoopylion@1994', callback))
 console.log(schema.validate('asd!@#123', callback))
 console.log(schema.validate('POI)(*098', callback))

@@ -142,7 +142,7 @@ describe("password-validator", function () {
         .min(8)
         .addCustomRule(PasswordSchema.UpperLowerNumberSymbolRule)
         .continuous()
-        .pinyin("周小全")
+        .pinyin("史努比")
         .keyboard()
         .excludes("snoopylion")
         .excludes(["peace", "love", "rose", "gun"]);
@@ -155,9 +155,9 @@ describe("password-validator", function () {
       expect(validator.validate("jiwr&%(@#")).toBe(false);
       expect(validator.validate("u4js8231x")).toBe(false);
       expect(validator.validate("peace1490")).toBe(false);
-      expect(validator.validate("admin556")).toBe(false);
-      expect(validator.validate("root@980")).toBe(false);
-      expect(validator.validate("zhouxiaoquan@1994")).toBe(false);
+      expect(validator.validate("rose556")).toBe(false);
+      expect(validator.validate("love@980")).toBe(false);
+      expect(validator.validate("shinubi@1994")).toBe(false);
       expect(validator.validate("snoopylion@1994")).toBe(false);
       expect(validator.validate("asd!@#123")).toBe(false);
       expect(validator.validate("POI)(*098")).toBe(false);

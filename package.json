@@ -9,8 +9,12 @@
     "test": "jest",
     "prepublishOnly": "npm run build & npm run test"
   },
+  "repository": {
+    "url": "https://github.com/zhouLion/pass-word",
+    "type": "git"
+  },
   "keywords": [],
-  "author": "zhoulion",
+  "author": "zhouLion",
   "license": "ISC",
   "dependencies": {
     "core-js": "^3.19.0"
