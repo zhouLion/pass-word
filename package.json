@@ -1,5 +1,5 @@
 {
-  "name": "pass-word",
+  "name": "@snoopylion/pass-word",
   "version": "0.0.1",
   "description": "一个简单的密码校验工具",
   "main": "./umd/index.js",
