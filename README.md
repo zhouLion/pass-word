@@ -4,10 +4,8 @@
 [git npm 库]()
 
 ## 安装
-```
-# 使用 npm 安装
-npm i pass-word -S
-# 或者使用 yarn、pnpm 安装
+``` shell
+npm i @snoopylion/pass-word -S
 ```
 
 ## 使用指南
