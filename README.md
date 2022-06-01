@@ -9,20 +9,22 @@ npm i @snoopylion/pass-word -S
 ```
 
 ## 使用指南
-### 比如有如下的需求
->   密码复杂度要求
-  a) 8位或以上
-  b) 大小写、数字、特殊字符至少包含三种并且应尽量使用随机字符
-  c) 不允许出现三位（含）以上连续或相同的字母和数字，不允许出现三位（含）以上键盘相邻字母：
-  连续说明：123，321，abc，cba，111，ddd等均不允许；三位是指连续，而非累积，如：a1aa允许
-  键盘相邻说明：qwe、qaz、1qa、sdf，1qaz，2wsx，asd，zaq1，xsw2，qwerty，!QAZ，@WSX，等不允许
-  d) 不允许出现名字全拼，不区分大小写；
-  英文用户名：密码不能包含用户名
-  中文用户名：密码不能包含用户名全拼
-  e) 不允许出现常见单词及缩写，不区分大小写；
-  不能出现 'peace', 'love', 'rose', 'gun' 等等常见单词
+### 需求起源
+> 公司安全部门，发布了一套新的密码复杂度的规范，要求 A 端密码强度达到如下要求：
+- a) 8位或以上
+- b) 大小写、数字、特殊字符至少包含三种并且应尽量使用随机字符
+- c) 不允许出现三位（含）以上连续或相同的字母和数字，不允许出现三位（含）以上键盘相邻字母：
+  - 连续说明：123，321，abc，cba，111，ddd等均不允许；三位是指连续，而非累积，如：a1aa允许
+  - 键盘相邻说明：qwe、qaz、1qa、sdf，1qaz，2wsx，asd，zaq1，xsw2，qwerty，!QAZ，@WSX，等不允许
+- d) 不允许出现名字**全拼**，不区分大小写；
+  - 英文用户名：密码不能包含用户名
+  - 中文用户名：密码不能包含用户名全拼
+- e) 不允许出现常见单词及缩写，不区分大小写；
+  不能出现一些常见单词，例如 'peace', 'love', 'rose', 'gun' 等等
 
-### 在 web 应用中，可以这样使用
+于是开发了这套密码校验方案
+
+### 在 web 应用中使用
 ``` typescript
 import { PasswordSchema } from 'pass-word'
 
@@ -67,7 +69,12 @@ console.log(schema.validate('asd!@#123', callback))
 console.log(schema.validate('POI)(*098', callback))
 ```
 
-### 在 node 应用中，只需要修改引包方式
+### 在 node 应用中
+如果使用 mjs 模块，则与上述一样使用。
+
+如果是常规的 commonjs 模块，则需要使用 `require` 引入。
+
+``` javascript
 ``` js
 const { PasswordSchema } = require('pass-word')
 
@@ -95,6 +102,8 @@ validate(password: string, callback?: Callback): boolean;
 `validate` 接受一个必传的文本参数（即待校验的密码），和一个回调函数，回调函数的执行规则和参数格式，见上面 「PasswordSchema 实例化配置」说明。`validate`  是同步的，返回值为 `boolean` 值，表示验证是否成功。
 
 ## 代码开发
-- 源代码开发：项目源代码使用 `typescript` 开发，源文件位于 `src` 文件夹中。
-- 代码测试：项目使用 jest 进行单元测试，测试文件位于 `test/index.test.js`， 执行 `npm run test` 运行测试脚本。
-- 代码构建：构建工具为 `rollup`， 输出 `umd` 模块文件和类型声明文件。 
+- 源代码开发：项目源代码使用 `typescript` 开发，源文件位于 `src` 文件夹中；
+- 代码测试：项目使用 jest 进行单元测试，测试文件位于 `test/index.test.js`， 执行 `npm run test` 运行测试脚本；
+- 代码构建：构建工具为 `rollup`， 输出 `umd` 模块文件和类型声明文件；
+- [ ] 计划使用 `tsup` 构建工具进行构建；
+- [ ] 拼音库文件过大，后期进行插件化改造；

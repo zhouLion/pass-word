@@ -14,7 +14,7 @@
     "url": "https://github.com/zhouLion/pass-word",
     "type": "git"
   },
-  "keywords": [],
+  "keywords": ["pinyin", "密码", "校验"],
   "author": "zhouLion",
   "license": "ISC",
   "dependencies": {
